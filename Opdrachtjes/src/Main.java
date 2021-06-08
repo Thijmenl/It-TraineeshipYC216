@@ -3,9 +3,6 @@ import java.util.Arrays;
 public class Main {
 	public static void main(String[] args) {
 		int[] myArray2 = { 622, 2, 5, 85, 21, 3, 73, 26, 1, 88, 35 };
-		
-		String[] onderdelen = {"motor", "uitlaat", "deur", "voorruit"};
-		boolean[] maken = { false, false, false, false};
 
 		Opdracht opdracht1 = new Opdracht();
 		opdracht1.aanElkaarPlakken();
@@ -23,7 +20,9 @@ public class Main {
 		opdracht5.returnArray(myArray2);
 
 		Auto auto1 = new Auto();
-		auto1.repareren(onderdelen, maken);
+		
+		Monteur monteur = new Monteur();
+		monteur.repareren(auto1.onderdelen, auto1.maken);
 
 	}
 
@@ -94,6 +93,10 @@ public class Main {
 		}
 	}
 	static class Auto {
+		String[] onderdelen = {"motor", "uitlaat", "deur", "voorruit"};
+		boolean[] maken = { false, false, false, false};
+	}
+	static class Monteur {
 		public void repareren(String[] onderdelen, boolean[] maken) {
 			System.out.println("\n\nOpdracht 5\n---");
 			int kosten = 0;
@@ -106,6 +109,7 @@ public class Main {
 			}
 		}
 	}
+	
 }
 
 
