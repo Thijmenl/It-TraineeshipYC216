@@ -29,9 +29,17 @@ public class Main {
 //	    
 //	    Sort sort = new Sort();
 //	    sort.woordPrinten();
-	    
-	    Lingo lingo = new Lingo();
-	    lingo.spelen();
+//	    
+//	    Lingo lingo = new Lingo();
+//	    lingo.spelen();
+		
+		Boot boot = new Boot();
+		Speedboot speedboot = new Speedboot();
+		
+		Kapitein kapitein = new Kapitein();
+		kapitein.varen(boot);
+		System.out.println("");
+		kapitein.varen(speedboot);
 	}
 }
 
@@ -211,5 +219,49 @@ class Lingo {
             System.out.println(Arrays.toString(ingevuldArray));
         }
     }
+}
+
+class Boot {
+	int knopen = 10;
+	void bootStarten(String string) {
+		System.out.println(string);
+	}
+}
+
+class Speedboot extends Boot {
+	Speedboot() {
+		super.knopen = 20;
+	}
+}
+
+class Kapitein {
+	void varen(Boot boot) {
+		if(boot instanceof Speedboot) {
+			boot.bootStarten("dit is de speedboot " + boot.knopen);
+			System.out.println("Ik doe even mijn petje af");
+		} else {
+			boot.bootStarten("dit is de normale boot " + boot.knopen);
+		}
+	}
+}
+
+interface Vliegend {
+	class Vliegtuig {
+		void vliegen() {
+			System.out.println("Ik vlieg in een vliegtuig");
+		}
+	}
+
+	class Leeuw {
+		void vliegen() {
+			System.out.println("Ik vlieg in een vliegtuig");
+		}
+	}
+
+	class Spreeuw {
+		void vliegen() {
+			System.out.println("Ik vlieg in een vliegtuig");
+		}
+	}
 }
 	
